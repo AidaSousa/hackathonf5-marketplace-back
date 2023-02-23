@@ -73,12 +73,12 @@ Si quisieras llamar a la api puedes hacerlo con postman, llamando a http://local
 [Karolina](https://github.com/KaroVillarraga)<br>
 [Arnau](https://github.com/GrimMori)<br> 
 [Alessandro](https://github.com/AlessHub)<br>
-[Aida](https://github.com/)<br>
+[Aida](https://github.com/AidaSousa)<br>
 [Jordy](https://github.com/Ashur19)<br>
 [Sharon](https://github.com/SharonInfante)<br> 
 [Auri](https://github.com/Auri78)<br>
 [Gustavo](https://github.com/GustavoArdaya)<br>
-[Aldara](https://github.com/)<br>
+[Aldara](https://github.com/AldaraMG)<br>
 [Xabier](https://github.com/xabieria)<br>
 
 
