@@ -15,7 +15,6 @@ use App\Http\Controllers\PisosController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
 Route::apiResource('pisos', PisosController::class );
 
 Route::post('register', [AuthController::class, 'register']);

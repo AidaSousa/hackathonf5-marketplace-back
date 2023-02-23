@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pisos;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Storage;
 
 class PisosController extends Controller
 {
@@ -26,34 +27,38 @@ class PisosController extends Controller
      * @param Request $request
      * @return Response
      */
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function store(Request $request)
-    {
-        $data = [];
-        if ($request->hasfile('fotos')) {
-            foreach ($request->file('fotos') as $key => $file) {
-                $name = $file->getClientOriginalName();
-                $file->move('images/featured', 'public');
-                $data[$key] = $name;
-            }
-        }
+{
+    $file = new Pisos();
 
-        $file = new Pisos();
-        $file->user_id = $request->user_id;
-        $file->titulo = $request->titulo;
-        $file->ciudad = $request->ciudad;
-        $file->zona = $request->zona;
-        $file->precio = $request->precio;
-        $file->planta = $request->planta;
-        $file->extension = $request->extension;
-        $file->habitaciones = $request->habitaciones;
-        $file->baños = $request->baños;
-        $file->descripcion = $request->descripcion;
-        $file->fotos = json_encode($data);
-        $file->isFavorite = $request->isFavorite;
-        $file->propietario = $request->propietario;
+    $file->fotos = $request->fotos;
+    $file->user_id = $request->user_id;
+    $file->titulo = $request->titulo;
+    $file->ciudad = $request->ciudad;
+    $file->zona = $request->zona;
+    $file->precio = $request->precio;
+    $file->planta = $request->planta;
+    $file->extension = $request->extension;
+    $file->habitaciones = $request->habitaciones;
+    $file->baños = $request->baños;
+    $file->descripcion = $request->descripcion;
+    $file->isFavorite = $request->isFavorite;
+    $file->propietario = $request->propietario;
 
-        $file->save();
-    }
+    $file->save();
+
+    $file->fotos = json_decode($file->fotos); // cast fotos to an array
+
+    return response()->json($file, 201);
+}
+
+
 
     /**
      * Display the specified resource.

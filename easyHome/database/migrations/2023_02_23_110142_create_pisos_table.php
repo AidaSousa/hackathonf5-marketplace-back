@@ -26,7 +26,7 @@ return new class extends Migration
             $table->integer('baños');
             $table->longText('descripcion');
             $table->json('caracteristicas')->nullable();
-            $table->json('fotos')->nullable();
+            $table->jsonb('fotos')->nullable();
             $table->boolean('isFavorite');
             $table->string('propietario');
         });
