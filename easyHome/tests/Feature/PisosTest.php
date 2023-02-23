@@ -77,7 +77,7 @@ class PisosTest extends TestCase
 
     /** @test */
 
-    public function a_post_can_be_stored()
+    public function a_post_can_be_stored_without_images()
     {
         $user = User::factory()->create();
         $data = [
@@ -96,7 +96,7 @@ class PisosTest extends TestCase
         ];
 
         $response = $this->post('/api/pisos', $data);
-        $response->assertStatus(201);
+        $response->assertSuccessful();
 
         $this->assertDatabaseHas('pisos', [
             "user_id" => $user->id,

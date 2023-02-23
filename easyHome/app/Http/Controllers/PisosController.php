@@ -28,20 +28,31 @@ class PisosController extends Controller
      */
     public function store(Request $request)
     {
-        $pisos = new Pisos();
-    
-
-        if ($request->hasFile('image_path')) {
-            $path = $request->file('image_path')->store('images/featureds', 'public');
-            $pisos->image_path  = $path;
-        } else {
-            $pisos->image_path  = 'noFoto';
+        $data = [];
+        if ($request->hasfile('fotos')) {
+            foreach ($request->file('fotos') as $key => $file) {
+                $name = $file->getClientOriginalName();
+                $file->move('images/featured', 'public');
+                $data[$key] = $name;
+            }
         }
-        $pisos->title = $request->title;
-        $pisos->link = $request->link;
-        $pisos->save($request->validated());
-    
-        return $pisos;
+
+        $file = new Pisos();
+        $file->user_id = $request->user_id;
+        $file->titulo = $request->titulo;
+        $file->ciudad = $request->ciudad;
+        $file->zona = $request->zona;
+        $file->precio = $request->precio;
+        $file->planta = $request->planta;
+        $file->extension = $request->extension;
+        $file->habitaciones = $request->habitaciones;
+        $file->baños = $request->baños;
+        $file->descripcion = $request->descripcion;
+        $file->fotos = json_encode($data);
+        $file->isFavorite = $request->isFavorite;
+        $file->propietario = $request->propietario;
+
+        $file->save();
     }
 
     /**
