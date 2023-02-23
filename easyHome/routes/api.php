@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PisosController;
@@ -14,9 +15,7 @@ use App\Http\Controllers\PisosController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-Route::middleware('auth:api')->get('/users', function (Request $request) {
-    return $request->user();
-});
-
 Route::apiResource('pisos', PisosController::class );
+
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
