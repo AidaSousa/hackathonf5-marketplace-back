@@ -40,7 +40,7 @@ class PisosTest extends TestCase
 
 
     /**
-     * Test the show method of the PisosController.
+     * Test
      *
      * @return void
      */

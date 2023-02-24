@@ -14,7 +14,7 @@ class AuthControllerTest extends TestCase
     use DatabaseTransactions, WithFaker;
 
     /**
-     * Test register new user
+     * Test 
      *
      * @return void
      */
@@ -39,7 +39,7 @@ class AuthControllerTest extends TestCase
     }
 
     /**
-     * Test login with valid credentials
+     * Test
      *
      * @return void
      */
@@ -63,7 +63,7 @@ class AuthControllerTest extends TestCase
     }
 
     /**
-     * Test login with invalid credentials
+     * Test 
      *
      * @return void
      */
