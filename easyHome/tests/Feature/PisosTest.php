@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Api;
 
 use App\Models\Pisos;
 use App\Models\User;
@@ -156,7 +156,6 @@ class PisosTest extends TestCase
         // aseguramos que este proyecto no esté en la base de datos
         $this->assertDatabaseMissing('pisos', $project->toArray());
     }
-
 
     // test incompleto, quedaría hacer assert y que devuelva algún string, tocaría modificar el CRUD para ello también
     public function test_delete_non_existing_posts()

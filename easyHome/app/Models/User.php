@@ -39,10 +39,11 @@ class User extends Authenticatable
      * The attributes that should be cast.
      *
      * @var array<string, string>
-     */d $casts = [
+     */
+
+     const casts = [
         'email_verified_at' => 'datetime',
     ];
-
     public function setPasswordAttribute($value) {
         $this->attributes['password'] = bcrypt($value);
     }
